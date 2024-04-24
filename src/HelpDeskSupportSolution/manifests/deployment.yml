@@ -4,7 +4,7 @@ metadata:
   name: help-desk-support-api
   namespace: hypertheory
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: help-desk-support-api
