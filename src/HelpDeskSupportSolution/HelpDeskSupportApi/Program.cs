@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(b => b.AddService("issues-api"))
+    .ConfigureResource(b => b.AddService("support-api"))
     .WithTracing(b =>
     {
         b.AddAspNetCoreInstrumentation();
@@ -47,11 +47,11 @@ app.MapGet("/", async ([FromServices] IProvideTheBusinessClock clock) =>
     var ifWeAreOpen = await clock.AreWeCurrentOpenAsync();
     if (ifWeAreOpen)
     {
-        return Results.Ok(new SupportResponseModel("Bob Smith", "555-1212", "bob@company.com"));
+        return Results.Ok(new SupportResponseModel("Robert Smith", "555-1212", "bob@company.com"));
     }
     else
     {
-        return Results.Ok(new SupportResponseModel("Support Pros", "(800) BAD-CODE", "help@support-pros.com"));
+        return Results.Ok(new SupportResponseModel("Support Pros", "(800) 999-9999", "help@support-pros.com"));
     }
 });
 app.MapPrometheusScrapingEndpoint();
