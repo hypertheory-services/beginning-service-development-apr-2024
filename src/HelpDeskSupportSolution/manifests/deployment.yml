@@ -4,6 +4,7 @@ metadata:
   name: help-desk-support-api
   namespace: hypertheory
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: help-desk-support-api
@@ -12,6 +13,7 @@ spec:
       labels:
         app: help-desk-support-api
     spec:
+    
       containers:
       - name: help-desk-support-api
         image: jeffrygonzalez/help-desk-apr-2024:v0.2
